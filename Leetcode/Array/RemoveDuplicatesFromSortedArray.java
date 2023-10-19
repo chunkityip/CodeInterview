@@ -1,4 +1,4 @@
-package Leetcode.String;
+package Leetcode.Array;
 
 public class RemoveDuplicatesFromSortedArray {
 
