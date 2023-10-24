@@ -8,7 +8,7 @@ public class ValidPalindrome {
         System.out.println(isPalindrome("A man, a plan, a canal: Panama")); // Output : true;
     }
     /*
-    //Simulation 1
+    //Solution 1
     public static boolean isPalindrome(String s) {
         //Base case
         if (s.length() == 0 || s.length() == 1) return true;
@@ -24,7 +24,7 @@ public class ValidPalindrome {
     }
      */
 
-    //Simulation 2
+    /*Solution 2
     public static boolean isPalindrome(String s) {
         //Base case
         if (s.length() == 0 || s.length() == 1) return true;
@@ -40,6 +40,20 @@ public class ValidPalindrome {
         String reverse = sb.reverse().toString();
 
         return reverse.equals(filter);
+    }
+     */
+
+    //Solution 3 : Two Pointer
+    public static boolean isPalindrome(String s) {
+
+        for (int i = 0 , j = s.length() - 1; i < j; i++ , j--) {
+            while (i < j && !Character.isLetterOrDigit(s.charAt(i))) i++;
+            while (i < j && !Character.isLetterOrDigit(s.charAt(j))) j--;
+
+            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) return false;
+        }
+
+        return true;
     }
 }
 
