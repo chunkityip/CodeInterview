@@ -22,10 +22,15 @@ public class ReverseWordInAString3 {
                 //swap , and then move forward as startIndex , move backward as endIndex
                 while (startIndex < endIndex) {
                     char temp = c[startIndex];
+                    /*
                     c[startIndex] = c[endIndex];
                     c[endIndex] = temp;
                     startIndex++;
                     endIndex--;
+                    Instead of doing this , we can do the following:
+                     */
+                    c[startIndex++] = c[endIndex];
+                    c[endIndex--] = temp;
                 }
                 //lastSpaceIndex will point to space index
                 lastSpaceIndex = i;
