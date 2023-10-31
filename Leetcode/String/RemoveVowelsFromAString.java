@@ -2,7 +2,7 @@ package Leetcode.String;
 
 public class RemoveVowelsFromAString {
 
-    public static void main (String[] args) {
+    public static void main(String[] args) {
         System.out.println(removeVowels("leetcodeisacommunityforcoders"));   //Output : ltcdscmmntyfrcdrs
     }
 
@@ -16,5 +16,26 @@ public class RemoveVowelsFromAString {
         }
         return sb.toString();
     }
-
 }
+
+/*
+    Using switch case
+    public static String removeVowels(String s) {
+        //Base case
+        if (s.length() == 0) return "";
+
+        StringBuilder sb = new StringBuilder();
+        for (Character c : s.toCharArray()) {
+            switch (c) {
+                case 'a':
+                case 'e':
+                case 'i':
+                case 'o':
+                case 'u':
+                    continue;
+            }
+            sb.append(c);
+        }
+        return sb.toString();
+    }
+ */
