@@ -35,6 +35,7 @@ public class LinkedListCycle {
     }
 
     public boolean hasCycle2(ListNode head) {
+        //Second solution : Two Pointer (slow and fast)
         //The cycle means there will have same node following the next pointer.
         //The keyword is repeating node
 
