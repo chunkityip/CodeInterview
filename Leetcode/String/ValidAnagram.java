@@ -1,6 +1,7 @@
 package Leetcode.String;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class ValidAnagram {
 
@@ -9,6 +10,26 @@ public class ValidAnagram {
         System.out.println(isAnagram("rat", "car"));  //Output: false
     }
 
+    public static boolean isAnagramOne(String s, String t) {
+        //Create two HashMap , key as their char , value as their sum
+        //compare their sum
+
+        //Base case
+        if (s.length() != t.length()) return false;
+
+        Map<Character, Integer> sMap = new HashMap<>();
+        Map<Character, Integer> tMap = new HashMap<>();
+
+        for (char c : s.toCharArray()) {
+            sMap.put(c , sMap.getOrDefault(c , 0) + 1);
+        }
+
+        for (char c : t.toCharArray()) {
+            tMap.put(c , tMap.getOrDefault(c , 0) + 1);
+        }
+
+        return sMap.equals(tMap);
+    }
     public static boolean isAnagram(String s, String t) {
         //Put s.charAT(i) as key and count as value
 
@@ -39,5 +60,7 @@ public class ValidAnagram {
         // If the HashMap is empty, they are anagrams
         return true;
     }
+
+
 }
 
