@@ -1,16 +1,32 @@
 package Leetcode.String;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 public class ValidAnagram {
 
     public static void main (String[] args) {
-        System.out.println(isAnagram("anagram", "nagaram")); //Output: true
-        System.out.println(isAnagram("rat", "car"));  //Output: false
+        System.out.println(isAnagramThree("anagram", "nagaram")); //Output: true
+        System.out.println(isAnagramThree("rat", "car"));  //Output: false
     }
 
-    public static boolean isAnagramOne(String s, String t) {
+    public boolean isAnagramOne(String s, String t) {
+        //Using sort
+
+        //Base case
+        if (s.length() != t.length()) return false;
+
+        char[] sArray = s.toCharArray();
+        char[] tArray = t.toCharArray();
+
+        Arrays.sort(sArray);
+        Arrays.sort(tArray);
+
+        return Arrays.equals(sArray , tArray);
+    }
+
+    public static boolean isAnagramtwo(String s, String t) {
         //Create two HashMap , key as their char , value as their sum
         //compare their sum
 
@@ -30,7 +46,7 @@ public class ValidAnagram {
 
         return sMap.equals(tMap);
     }
-    public static boolean isAnagram(String s, String t) {
+    public static boolean isAnagramThree(String s, String t) {
         //Put s.charAT(i) as key and count as value
 
         //We are creating a HashMap to put new key as charAt(i) and value as count
@@ -62,7 +78,7 @@ public class ValidAnagram {
     }
 
     //This situation will be use in O(1) space-time
-    public boolean isAnagramThree(String s, String t) {
+    public boolean isAnagramFour(String s, String t) {
         //Using ASCII code to sum and minus
 
         //Base case
