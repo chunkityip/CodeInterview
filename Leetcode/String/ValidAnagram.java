@@ -61,6 +61,26 @@ public class ValidAnagram {
         return true;
     }
 
+    //This situation will be use in O(1) space-time
+    public boolean isAnagramThree(String s, String t) {
+        //Using ASCII code to sum and minus
 
+        //Base case
+        if (s.length() != t.length()) return false;
+
+        //Since the English Character has 26
+        int[] anagram = new int[26];
+
+        for (int i = 0; i < s.length(); i++) {
+            anagram[s.charAt(i) - 'a']++;
+            anagram[t.charAt(i) - 'a']--;
+        }
+
+        for (int a : anagram) {
+            if (a != 0) return false;
+        }
+
+        return true;
+    }
 }
 
