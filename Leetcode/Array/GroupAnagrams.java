@@ -1,5 +1,10 @@
 package Leetcode.Array;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
 public class GroupAnagrams {
 
 
@@ -25,7 +30,7 @@ public class GroupAnagrams {
         return new ArrayList<>(map.values());
     }
 
-    public List<List<String>> groupAnagrams(String[] strs) {
+    public List<List<String>> groupAnagramsTwo(String[] strs) {
         //Using ASCII code to count is same number or not
 
         if (strs.length == 0) return new ArrayList<>();
