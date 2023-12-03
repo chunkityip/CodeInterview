@@ -1,4 +1,4 @@
-package Leetcode.String;
+package Leetcode.Company.JPMorgan;
 
 public class RemoveColoredPiecesIfBothNeighborsAreTheSameColor {
     //This question highly asked by JPMorgan
