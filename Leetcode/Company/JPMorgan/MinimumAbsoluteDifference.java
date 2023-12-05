@@ -1,4 +1,4 @@
-package Leetcode.Array;
+package Leetcode.Company.JPMorgan;
 
 import java.util.ArrayList;
 import java.util.Arrays;
