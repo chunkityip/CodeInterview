@@ -1,4 +1,4 @@
-package Leetcode.Array;
+package Leetcode.Company.JPMorgan;
 
 public class NextPermutation {
     //This question is highly asked in JPMorgan
