@@ -32,6 +32,7 @@ public class largeSmallSum {
         The second smallest element at the odd position is 4.
         The output is 7 (3 + 4).
      */
+    /*
     public static int sum(int[] arr) {
 
 
@@ -40,4 +41,5 @@ public class largeSmallSum {
             System.out.println(sum(arr));
         }
     }
+     */
 }
