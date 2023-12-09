@@ -22,9 +22,10 @@ public class anagrams {
     Explanation
 
     Listen and Silent are anagrams (an anagram is a word formed by rearranging the letters of the other word).
-     */
+      public static String anagrams(String one , String two) {
+    }
 
-    public static String anagrams(String one , String two) {
+     */
 
 
 }

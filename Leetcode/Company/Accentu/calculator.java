@@ -28,10 +28,8 @@ public class calculator {
 
         Sample output:
         19
-             */
 
-
-    public static int calculate(int m , int n) {
+        public static int calculate(int m , int n) {
 
     }
 
@@ -39,4 +37,8 @@ public class calculator {
         System.out.println(calculate(12 , 50));
         System.out.println(calculate(100 , 160));
     }
+             */
+
+
+
 }

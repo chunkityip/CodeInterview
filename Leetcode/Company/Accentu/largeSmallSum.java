@@ -2,11 +2,9 @@ package Leetcode.Company.Accentu;
 
 
 import java.util.Arrays;
+import java.util.Scanner;
 
-
-
-public class largeSmallSum {
-    /*
+/*
     The function takes an integral arr which is of the size or length of its arguments. Return the sum of the second smallest element at odd position ‘arr’ and the second largest element at the even position.
 
         Assumption
@@ -32,14 +30,15 @@ public class largeSmallSum {
         The second smallest element at the odd position is 4.
         The output is 7 (3 + 4).
      */
-    /*
-    public static int sum(int[] arr) {
 
 
-        public static void main (String[]args){
-            int[] arr = {3, 2, 1, 7, 5, 4};
-            System.out.println(sum(arr));
-        }
-    }
-     */
+/*
+public class largeSmallSum {
+
+    public static int findEvenSecondLargest(int[] arr) {
+
 }
+
+*/
+
+

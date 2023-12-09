@@ -29,8 +29,8 @@ public class operation {
 
         Sample output:
         –4
-     */
-    public static int operationChoices(int c , int a , int b) {
+
+        public static int operationChoices(int c , int a , int b) {
 
     }
 
@@ -38,4 +38,6 @@ public class operation {
         System.out.println(operationChoices(1 , 12 , 16));
         System.out.println(operationChoices(2 , 16 , 20));
     }
+     */
+
 }
