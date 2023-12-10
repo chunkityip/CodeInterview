@@ -2,7 +2,50 @@ package Leetcode.Company.Accentu;
 
 import java.util.Scanner;
 
+/*
 public class ratCountHouse {
+
+
+    public static int solve(int r , int unit , int n , int[] arr) {
+        if (n == 0) return -1;
+        int requiredFood = r * unit;
+        int sum = 0;
+        int count = 1;
+        for (int i = 0; i < arr.length; i++) {
+            sum += arr[i]; //2
+            if (sum < requiredFood) { // 2 !>= 14 ,
+                count++;
+            }
+        }
+        return count;
+    }
+
+
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int r = sc.nextInt();
+        int unit = sc.nextInt();
+        int n = sc.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = sc.nextInt();
+        }
+        System.out.println(solve(r , unit , n , arr));
+    }
+
+
+}
+
+
+
+
+
+
+
+
+    */
+
+
     /*
     The function accepts two positive integers ‘r’ and ‘unit’ and a positive integer array ‘arr’
     of size ‘n’ as its argument ‘r’ represents the number of rats present in an area,
@@ -35,14 +78,3 @@ public class ratCountHouse {
     sufficient for all the rats. Thus, output is 4.
     */
 
-    /*
-    public static int solve(int r , int unit , int n , int[] arr) {
-
-    }
-
-    public static void main (String[] args) {
-
-    }
-
-     */
-}
