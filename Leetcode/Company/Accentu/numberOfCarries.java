@@ -40,7 +40,8 @@ public class numberOfCarries {
 
     Int NumberOfCarries(int num1 , int num2);
 
-    The functions accepts two numbers ‘num1’ and ‘num2’ as its arguments. You are required to calculate and return  the total number of carries generated while adding digits of two numbers ‘num1’ and ‘ num2’.
+    The functions accepts two numbers ‘num1’ and ‘num2’ as its arguments. You are required to calculate and return  the total number of carries generated while adding digits of two numbers
+    ‘num1’ and ‘ num2’.
 
     Assumption: num1, num2>=0
 
@@ -53,7 +54,7 @@ public class numberOfCarries {
     2
     Explanation:
 
-    Adding ‘num 1’ and ‘num 2’ right-to-left results in 2 carries since ( 1+9) is 10. 1 is carried and (5+4=1) is 10, again 1 is carried. Hence 2 is returned.
+    Adding ‘num 1’ and ‘num 2’ right-to-left result s in 2 carries since ( 1+9) is 10. 1 is carried and (5+4=1) is 10, again 1 is carried. Hence 2 is returned.
 
     Sample Input
 
@@ -65,4 +66,19 @@ public class numberOfCarries {
 
     0
      */
+
+
+    //Num 1: 23
+    //
+    //    Num 2: 563
+    //
+    //    Sample Output
+    //
+    //    0
+
+    //Input
+    //    Num 1: 451
+    //    Num 2: 349
+    //    Output
+    //    2
 }

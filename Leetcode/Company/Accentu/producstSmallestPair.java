@@ -69,9 +69,11 @@ Arr:9 8 3 -7 3 9
 
 Sample Output
 
--21
+-21 as -7 * 3
  */
 
+//Return -1 if array is empty or if n<2
+//Return 0, if no such pairs found
 public class producstSmallestPair {
 
 
