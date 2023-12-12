@@ -9,6 +9,16 @@ public class CheckWhetherTwoStringsAreAlmostEquivalent {
     public boolean checkAlmostEquivalent(String word1 , String word2) {
         int[] c = new int[26];
 
+
+        //Since English character has 26 , each represent a character
+        //index a as 0. If word1.charAt(i) is a , a - a will be 0 , so we ++ index 0
+        //index b as b. If word1.charAt(i) is b , b - a will be 1 , so we ++ index 1
+
+        //then we are -- to compare word2.charAt(i)
+        //using word1 = "aaaa", word2 = "bccb" as example
+        //word 1 has four a so c[0] is 4 now
+        //word 2 has zero a so c[0] still 4 , return false
+
         for (int i = 0; i < word1.length(); i++) {
             c[word1.charAt(i) - 'a']++;
             c[word2.charAt(i) - 'a']--;
