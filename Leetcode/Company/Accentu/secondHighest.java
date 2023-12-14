@@ -12,4 +12,3 @@ Your cannot sort the array or use any Java Collection APIs.
 
 public class secondHighest {
 }
-s

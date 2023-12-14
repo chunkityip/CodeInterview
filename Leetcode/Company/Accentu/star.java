@@ -23,7 +23,7 @@ import java.util.Scanner;
             System.out.println();
         }
 */
-    }
+
 
 
 
@@ -42,12 +42,25 @@ Print the following Pattern . Given number of rows as input print the below patt
      **
       *
 
-      row is 6 , 5 , 4 , 3 , 2 , 1 as i--
-      space is 1 , 2 , 3 , 4 , 5 , 6 as j++
-      star
+
  */
 public class star {
 
+    public static void main (String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int N = sc.nextInt();
 
+        for (int i = 1 ; i <= N; i++) {
+
+            for (int j = 1; j <= i; j++) {
+                System.out.print(" ");
+            }
+
+            for (int j = i; j <= N; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+    }
 }
 
