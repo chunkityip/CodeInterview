@@ -1,5 +1,7 @@
 package Leetcode.Company.Accentu;
 
+import java.util.Scanner;
+
 public class absoluteDifference {
 
     /*
@@ -26,4 +28,10 @@ public class absoluteDifference {
     Elements of ‘arr’ having absolute difference of less than or equal to ‘diff’
     i.e. 2 with ‘num’ i.e. 13 are 12, 13 and 14.
      */
+
+
+
+
+
+
 }
