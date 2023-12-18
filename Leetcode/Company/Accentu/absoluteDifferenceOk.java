@@ -1,8 +1,6 @@
 package Leetcode.Company.Accentu;
 
-import java.util.Scanner;
-
-public class absoluteDifference {
+public class absoluteDifferenceOk {
 
     /*
     int findCount(int arr[], int length, int num, int diff);

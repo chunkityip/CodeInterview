@@ -3,13 +3,7 @@ package Leetcode.Company.Accentu;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-/*
-    Given N as the number of digits, the task is to find all the Autobiographical Numbers whose
-    length is equal to N.
 
-    If it is , an integer is returned , which represents the count of distinct  numbers in
-    'n'. If not, return 0
-. */
 
 /*
 public static int findAutoCount(String n) {
@@ -47,9 +41,33 @@ public static int findAutoCount(String n) {
     }
  */
 
+
+
+
+
+
+/*
+    Given N as the number of digits, the task is to find all the Autobiographical Numbers whose
+    length is equal to N.
+
+    If it is , an integer is returned , which represents the count of distinct  numbers in
+    'n'. If not, return 0
+
+    Example:
+    Input : 1210
+    Output: 3
+. */
+
+
+
 //https://www.youtube.com/watch?v=BbWRu0B1Oak&list=PLKtofb3HgEyyVYpMYF4mT5Ha7zR4nfRuO&index=2
 public class autobiographicalNumber {
 
-
+    public static int findAutoCount(String n) {
+        return 0;
+    }
 }
+
+
+
 

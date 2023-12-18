@@ -1,6 +1,8 @@
 package Leetcode.Company.Accentu;
 
-public class calculator {
+import java.util.Scanner;
+
+public class calculatorOk {
     /*
     The function takes two integrals m and n as arguments. You are required to obtain the total of all integers ranging between 1 to n (both inclusive) which are not divisible by m. You must also return the distinction between the sum of integers not divisible by m with the sum of integers divisible by m.
 
@@ -28,16 +30,39 @@ public class calculator {
 
         Sample output:
         19
+        */
 
         public static int calculate(int m , int n) {
 
-    }
+            //1 to n number , if any number can't % m , store at notDiv , else , store at div
+            //Math.abs(notDiv - div)
 
-    public static void main (String[] args) {
-        System.out.println(calculate(12 , 50));
-        System.out.println(calculate(100 , 160));
-    }
-             */
+            int notDiv = 0 , div = 0;
+            for (int i = 1; i <= n; i++) {
+                if (i % m == 0) {
+                    div += i;
+                } else {
+                    notDiv += i;
+                }
+            }
+            return Math.abs(notDiv - div);
+        }
+
+
+//    Sample input:
+//    m = 3
+//    n = 10
+//
+//    Sample output:
+//            19
+        public static void main (String[] args) {
+            Scanner scanner = new Scanner(System.in);
+            int m = scanner.nextInt();
+            int n = scanner.nextInt();
+
+            System.out.println(calculate(m , n));
+        }
+
 
 
 

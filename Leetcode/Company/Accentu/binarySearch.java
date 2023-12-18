@@ -26,4 +26,8 @@ public class binarySearch {
         The alphabets in str when expanded becomes “1 XOR 0 XOR 1 XOR 1 AND 0 OR 1”, result of the expression becomes 1, hence 1 is returned.
        */
 
+        //– A denotes AND operation &
+       // – B denotes OR operation |
+        // – C denotes XOR Operation ^
+
 }
