@@ -33,13 +33,16 @@ public class LinkedListCycle2 {
         LinkedListCycle.ListNode slow = head;
         LinkedListCycle.ListNode fast = head;
 
+        //First loop is to check is ListNode in cycle or not
         while (fast != null && fast.next != null) {
             //First cycle match
             slow = slow.next;
             fast = fast.next.next;
 
+            //Once we found it , set slow to head , if slow and fast match ,
+            //we know this slow will be the beginning of node
             if (slow == fast) {
-                //We set slow to head so we can point out slow is the head of cycle begins
+                //We set slow to head, so we can point out slow is the head of cycle begins
                 slow = head;
                 //Second cycle match
                 while (slow != fast) {
