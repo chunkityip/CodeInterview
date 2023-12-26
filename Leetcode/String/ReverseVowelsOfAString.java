@@ -7,8 +7,6 @@ public class ReverseVowelsOfAString {
         char[] c = s.toCharArray();
 
         while (start < end) {
-            //This will check is character vowels or not.
-            //It isn't , move forward to one
             while (start < s.length() && !isVowels(c[start])) {
                 start++;
             }

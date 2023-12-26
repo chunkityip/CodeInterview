@@ -3,7 +3,7 @@ package Leetcode.Array;
 public class CanPlaceFlowers {
 
     public boolean canPlaceFlowers(int[] flowerbed, int n) {
-        //Since they can't planted in adjacent plots , it means the first index nus be empty and after index nums must be empty
+        //Since they can't plant in adjacent plots , it means the first index nus be empty and after index nums must be empty
         //[i - 1] , [i] and [i + 1] must be 0 && flowerbed length must be >= n * 3
 
         //Also , the edge case we need to deal with it
