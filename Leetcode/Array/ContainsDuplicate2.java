@@ -1,16 +1,27 @@
 package Leetcode.Array;
 
-import java.util.HashMap;
+import java.util.HashSet;
 
 public class ContainsDuplicate2 {
     public boolean containsNearbyDuplicate(int[] nums, int k) {
-        HashMap<Integer , Integer> map = new HashMap<>();
-            for (int i = 0; i < nums.length; i++) {
-            if (map.containsKey(nums[i]) && Math.abs(i - map.get(nums[i])) <= k) {
-                return true;
+        //The k is talking about the length of window
+
+        if (nums.length < 2) return false;
+
+        HashSet<Integer> set = new HashSet<>();
+        int left = 0 , right = 0;
+
+        while (right < nums.length) {
+            if (set.size() > k) {
+                set.remove(nums[left]);
+                left++;
             }
-            map.put(nums[i] , i);
+
+            if (set.contains(nums[right])) return true;
+
+            set.add(nums[right]);
+            right++;
         }
-            return false;
+        return false;
     }
 }
