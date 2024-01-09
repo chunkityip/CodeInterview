@@ -1,6 +1,32 @@
 package Leetcode.String;
 
 public class ValidPalindrome2 {
+    /*
+        Whenever the question is asking Palindrome , we should use two pointer
+        one pointer point to left index and one point to right index
+        The starting and ending must be same as Palindrome look likes
+
+        However , the question is asking can deleting at most one character
+
+        For example : aaaaxa
+        After deleting x , we get "aaaaa" , so it is palindrome
+        So baiscally if left++ and right-- isn't match ,
+        we are comparing left + 1 to right OR left to right - 1
+        It looks like :
+            a a a a x a
+            ^         ^
+           left     right
+
+        a == a , left ++ , right--
+
+            a a a x
+            ^     ^
+          left   right
+
+        a != x , is left + 1 as 'a' match right as 'x'  OR  is left as 'a' match right - 1 as 'a' ?
+        If one of it match , return true , else return false
+
+        */
 
     public boolean validPalindrome(String s) {
         //If the pointer i and pointer j are not match , we are deleting one of the character
