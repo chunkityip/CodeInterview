@@ -2,6 +2,12 @@ package Leetcode.Array;
 
 public class BestTimeToBuyAndSellStock {
 
+    /*
+    One pointer to store the minPrice , another one is using loop to tearing thu length of prices
+    minPrice will keep comparing , is index i of prices or minPrice
+
+    if index i of prices subtract minPrice is bigger than max , max become the index i of prices subtract minPrice
+     */
     public int maxProfit(int[] prices) {
         int minBuy = Integer.MAX_VALUE;
         int maxProfit = 0;
