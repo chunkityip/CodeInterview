@@ -14,27 +14,15 @@ public class LongestSubstringWithoutRepeatingCharacters {
         Don't forget add right into HashMap
      */
 
-    /*
-    public int lengthOfLongestSubstring(String s) {
-        int left = 0;
-        int right = 0;
-        int ans = 0;
+    //Using HashMap to store key as character , index as value
+    //If we found the repeating character , the left point will jump to right pointer
+    //a b c a b c b b
+    //map didn't contains a as key , a's value + 1
+    //map didn't contains b as key , b's value + 1
+    //map didn't contains c as key , c's value + 1
+    //map did contains b as key , a's value jump to this a index (3) , store it to max
+    //....
 
-        HashSet<Character> set = new HashSet<>();
-
-        while (right < s.length()) {
-            if (!set.contains(s.charAt(right))) {
-                set.add(s.charAt(right));
-                right++;
-                ans = Math.max(ans , set.size());
-            } else {
-                set.remove(s.charAt(left));
-                left++;
-            }
-        }
-        return ans;
-    }
-     */
 
     public int lengthOfLongestSubstring(String s) {
 
@@ -42,9 +30,12 @@ public class LongestSubstringWithoutRepeatingCharacters {
         int left = 0 , ans = 0;
 
         for (int right = 0; right < s.length(); right++) {
+            //If we found the repeating character , the left point will jump to right pointer
+            //By comparing which one is bigger : right or left
             if (map.containsKey(s.charAt(right))) {
                 left = Math.max(map.get(s.charAt(right)) , left);
             }
+
             ans = Math.max(ans , right - left + 1);
             map.put(s.charAt(right) , right + 1);
         }
