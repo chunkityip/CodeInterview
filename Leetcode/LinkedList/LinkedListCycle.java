@@ -3,6 +3,14 @@ package Leetcode.LinkedList;
 import java.util.HashSet;
 
 public class LinkedListCycle {
+/*
+We can use HashSet. If we contains another head , we know it is cycling so return true
+## But The main idea is to set two pointer:
+pointer slow will jump to one at the time
+pointer fast will jump to two at the time
+
+return true if slow pointer point to fast pointer
+ */
 
     class ListNode {
         int val;
@@ -36,6 +44,7 @@ public class LinkedListCycle {
 
     public boolean hasCycle2(ListNode head) {
         //Second solution : Two Pointer (slow and fast)
+        //Known as Floyd's Cycle Finding Algorithm
         //The cycle means there will have same node following the next pointer.
         //The keyword is repeating node
 
