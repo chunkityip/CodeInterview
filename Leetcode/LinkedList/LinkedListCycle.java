@@ -23,7 +23,7 @@ return true if slow pointer point to fast pointer
     }
 
     public boolean hasCycle(ListNode head) {
-        //First solution : Using Hash Table
+        //First solution : Using Hash Tablee
         //The cycle means there will have same node following the next pointer.
         //The keyword is repeating node
 
