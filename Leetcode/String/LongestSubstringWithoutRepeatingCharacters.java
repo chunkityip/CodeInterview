@@ -2,29 +2,76 @@ package Leetcode.String;
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 
 public class LongestSubstringWithoutRepeatingCharacters {
-    /*
-        Sliding Window from left (first index) to right (also first index)
-        Also using HashMap , key as char and value as index
-        if char right is in the HashMap , left move to the value of key index j so we can skip the repaeating character
 
-        We are comparing ans , should it be original ans or right - left + 1 (+ 1 is to fix the index 0)
+    //left++ , max , and right++ in the for loop
 
-        Don't forget add right into HashMap
-     */
+    //Add character into HashMap
 
-    //Using HashMap to store key as character , index as value
-    //If we found the repeating character , the left point will jump to right pointer
-    //a b c a b c b b
-    //map didn't contains a as key , a's value + 1
-    //map didn't contains b as key , b's value + 1
-    //map didn't contains c as key , c's value + 1
-    //map did contains b as key , a's value jump to this a index (3) , store it to max
-    //....
+    //If there have repeating character (left pointer) in the HashMap
+    //The beginning of sliding window (left pointer) will shift forward so the current repeating character are no longer in the window
+    //For example
+     /*
+        a b c a b
+        ^     ^
+        l     r
 
+        //there have two 'a' , so left pointer point to left ,and right keep forward as right++
+
+        a b c a  b
+          ^   ^
+          l   r
+
+        and using max to compare the length of sliding window
+        */
 
     public int lengthOfLongestSubstring(String s) {
+        int left = 0 , max = 0;
+        Map<Character , Integer> map = new HashMap<>();
+        for (int right = 0; right < s.length(); right++) {
+            char r = s.charAt(right);
+            map.put(r , map.getOrDefault(r , 0) + 1);
+
+            while (map.get(r) > 1) {
+                char l = s.charAt(left);
+                map.put(l, map.get(l) - 1);
+                left++;
+            }
+
+            max = Math.max(max , right - left + 1);
+        }
+        return max;
+    }
+
+
+
+    /*
+    Actually , we don't need to loop over two times.
+
+        If there have repeating character (left pointer) in the HashMap
+        The beginning of sliding window (left pointer) will shift value of this repeating character
+        For example
+
+        a b c a b                      a b c a b
+        ^     ^          ->              ^   ^
+        l     r                          l   r
+
+        Key   Value                     Key Value
+        a     0 + 1 = 1                 a   3 + 1 = 4
+
+        The value inside the index of left pointer moving to (right + 1)
+
+        So next time we will see 'a' again , for example
+        a b c a b a                     a b c a b a
+              ^   ^          ->                   ^   ^
+              l   r                               l   r
+
+        and using max to compare the length of sliding window
+
+    */
+    public int lengthOfLongestSubstringOptimized(String s) {
 
         HashMap<Character , Integer> map = new HashMap<>();
         int left = 0 , ans = 0;

@@ -5,6 +5,8 @@ import java.util.Map;
 
 public class LongestRepeatingCharacterReplacement {
     /* Variable Sized Window
+
+
         The main idea is the following math: if (right - left + 1 - maxC > k)
         It means : The length of window + 1 (since index start from 0) - max (the number of same number) > k
 
@@ -40,8 +42,8 @@ public class LongestRepeatingCharacterReplacement {
 
 // Since the English letter have 26 character , we can actually use [[Frequencies array]] to store it
 
-    /*
-    public int characterReplacement(String s, int k) {
+
+    public int characterReplacement2(String s, int k) {
         int[] arr = new int[26];
         int left = 0;
         int maxCount = 0;
@@ -62,5 +64,4 @@ public class LongestRepeatingCharacterReplacement {
 
         return ans;
     }
-     */
 }
