@@ -15,7 +15,7 @@ public class LongestSubstringWithAtMostKDistinctCharacters {
         Adding character of index right as key , the number of showing as value
 
         if the size of map is bigger then k , we need to do the following:
-        1. substract the value of index left to 1 since we want to sliding the window as left pointer ++
+        1. subtract the value of index left to 1 since we want to sliding the window as left pointer ++
         2. Since we are looking for the Most K Distinct Characters , if we found the value of index left is 0 , remove it
         3. left pointer ++ so the window is sliding
 
