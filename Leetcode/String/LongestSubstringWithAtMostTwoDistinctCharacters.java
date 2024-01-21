@@ -10,7 +10,7 @@ public class LongestSubstringWithAtMostTwoDistinctCharacters {
         Variable sized window question
         The part of this question is about "most two distinct characters". It means the length of window can't be larger than 3
         So when we are using map to store , if the size of map > 2 , we need to remove the left pointer of window.
-        Also , the value of left need to substract by one since we are removing the left point of character
+        Also , the value of left need to subtract by one since we are removing the left point of character
         If the value of left pointer is 0 , we need to remove it so new left pointer can adding on it.
 
         */
