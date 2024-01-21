@@ -12,7 +12,7 @@ public class FruitIntoBaskets {
 
         if the size of HashMap is bigger than 2
         we update the value of key first index subtract to 1
-        if the value of key first index is 0 after updated , we are remove that index since we are looking for max length
+        if the value of key first index is 0 after updated , we areee remove that index since we are looking for max length
         first pointer forward
 
         finally right - left will be the length we are looking for
