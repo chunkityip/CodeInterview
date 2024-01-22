@@ -4,6 +4,8 @@ public class MinimumSizeSubarraySum {
     /*
     Viable Sized Window
     This time we are only using two pointer left and right to count the sum
+    **The main idea is to use sum value to keep storing the number of right pointer**
+
     we keep adding right pointer value into sum
     If the sum is equal or bigger than target , we need to move left point forward
         1. subtract left point number, so we have room to adding new index
