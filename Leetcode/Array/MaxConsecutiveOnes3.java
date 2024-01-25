@@ -3,6 +3,7 @@ package Leetcode.Array;
 public class MaxConsecutiveOnes3 {
 
     /*
+    Re-study
     So again we set a value call countZero , if countZero is bigger than k ,
     left pointer need to move forward and reset countZero subtract by one.
      */
