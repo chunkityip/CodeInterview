@@ -11,15 +11,13 @@ If yes , move left pointer forward so countZero need to subtract to refresh Sinc
 As usual , create a value call max the count max sliding window (right - left + 1)
  */
     public int findMaxConsecutiveOnes(int[] nums) {
-        int left = 0 , max = 0 , countZero = 0;
+        int left = 0 , countZero = 0 , max = 0;
 
         for (int right = 0; right < nums.length; right++) {
-            if (nums[right] == 0) countZero++;
+            countZero += (nums[right] == 0 ? 1 : 0);
 
-            if (countZero > 1) {
-                if (nums[left] == 0) {
-                    countZero--;
-                }
+            while (countZero > 1) {
+                countZero -= (nums[left] == 0 ? 1 : 0);
                 left++;
             }
             max = Math.max(max , right - left + 1);
