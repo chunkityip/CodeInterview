@@ -5,7 +5,7 @@ public class MinimumNumberOfFlipsToMakeTheBinaryStringAlternating {
         /*
         Alternating means: To repeatedly and regularly interchange with one another in time or place
 
-        To make a String Alternating , it only have two situations:
+        To make a String Alternating , it only have two situations:::
         1. start at 0 , as 0101010.....
         2. start at 1 , as 1010101.....
 
