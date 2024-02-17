@@ -18,8 +18,10 @@ public class MinimumSizeSubarraySum {
         */
 
         public int minSubArrayLen(int target , int[] nums) {
-            int left = 0 , sum = 0 , minSize = Integer.MAX_VALUE;
+            //Edge case
+            if (nums[0] == target) return 1;
 
+            int left = 0 , sum = 0 , minSize = Integer.MAX_VALUE;
             for (int right = 0; right < nums.length; right++) {
                 sum += nums[right];
 
@@ -29,6 +31,7 @@ public class MinimumSizeSubarraySum {
                     left++;
                 }
             }
+            //After iterator all length of numbs and sum still smaller than target , min will be unchanged states
             return minSize == Integer.MAX_VALUE ? 0 : minSize;
         }
 }
