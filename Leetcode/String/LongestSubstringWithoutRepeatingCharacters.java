@@ -3,91 +3,89 @@ package Leetcode.String;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 public class LongestSubstringWithoutRepeatingCharacters {
+    /*
+    HashMap version:
+    Since we are check duplicate character , we can create HashMap for store character key  ,the showing time of character as value
 
-    //left++ , max , and right++ in the for loop
+    if HashMap contains the key right pointer already , we will use sliding window algorithms which sliding the left pointer as left++ and remove character left key and value
 
-    //Add character into HashMap
-
-    //If there have repeating character (left pointer) in the HashMap
-    //The beginning of sliding window (left pointer) will shift forward so the current repeating character are no longer in the window
-    //For example
-     /*
-        a b c a b
-        ^     ^
-        l     r
-
-        //there have two 'a' , so left pointer point to left ,and right keep forward as right++
-
-        a b c a  b
-          ^   ^
-          l   r
-
-        and using max to compare the length of sliding window
-        */
-
-    public int lengthOfLongestSubstring(String s) {
-        int left = 0 , max = 0;
-        Map<Character , Integer> map = new HashMap<>();
+    */
+    public int lengthOfLongestSubstringHashMap(String s) {
+        int left = 0, max = 0;
+        HashMap<Character, Integer> map = new HashMap<>();
         for (int right = 0; right < s.length(); right++) {
             char r = s.charAt(right);
-            map.put(r , map.getOrDefault(r , 0) + 1);
 
-            while (map.get(r) > 1) {
-                char l = s.charAt(left);
-                map.put(l, map.get(l) - 1);
+            while (map.containsKey(r)) {
+                map.remove(s.charAt(left));
                 left++;
             }
 
-            max = Math.max(max , right - left + 1);
+            map.put(r, map.getOrDefault(r, 0) + 1);
+            max = Math.max(max, right - left + 1);
         }
         return max;
     }
 
-
-
     /*
-    Actually , we don't need to loop over two times.
+    HashSet version:
+    HashSet can also do the job.
+    Keep adding the character right pointer into HashSet so the position of right pointer in int array will become 1
+    if the position of right pointer bigger than 0 , we find the duplicate character , so we need to sliding the window for left pointer ++ and remove index left in int array
+    Finally , return the maximum length by return the size of set
+     */
 
-        If there have repeating character (left pointer) in the HashMap
-        The beginning of sliding window (left pointer) will shift value of this repeating character
-        For example
 
-        a b c a b                      a b c a b
-        ^     ^          ->              ^   ^
-        l     r                          l   r
+    public int lengthOfLongestSubstringHashSet(String s) {
+        int left = 0, max = 0;
+        Set<Character> set = new HashSet<>();
+        for (int right = 0; right < s.length(); right++) {
+            while (set.contains(s.charAt(right))) {
+                set.remove(s.charAt(left));
+                left++;
+            }
+            set.add(s.charAt(right));
+            max = Math.max(max, set.size());
+        }
+        return max;
+    }
+    /*
+    Instead of creating Hashing , we can create Frequencies' array
+    Commonly used tables are:
 
-        Key   Value                     Key Value
-        a     0 + 1 = 1                 a   3 + 1 = 4
+    - `int[26]`for Letters 'a' - 'z' or 'A' - 'Z'
+    - `int[128]`for ASCII
+    - `int[256]`for Extended ASCII
 
-        The value inside the index of left pointer moving to (right + 1)
+    **Noted***
+    for Letters 'a' - 'z' or 'A' - 'Z' , substring[s.charAt(right) - 'a']++ may work.
+    But for ASCII or Extended ASCII , it wouldn't
 
-        So next time we will see 'a' again , for example
-        a b c a b a                     a b c a b a
-              ^   ^          ->                   ^   ^
-              l   r                               l   r
-
-        and using max to compare the length of sliding window
-
-    */
-    public int lengthOfLongestSubstringOptimized(String s) {
-
-        HashMap<Character , Integer> map = new HashMap<>();
-        int left = 0 , ans = 0;
+     */
+    public int lengthOfLongestSubstringArray(String s) {
+        int left = 0, max = 0;
+        int[] substring = new int[128]; // Assuming ASCII characters
 
         for (int right = 0; right < s.length(); right++) {
-            //If we found the repeating character , the left point will jump to right pointer
-            //By comparing which one is bigger : right or left
-            if (map.containsKey(s.charAt(right))) {
-                left = Math.max(map.get(s.charAt(right)) , left);
+            char currentChar = s.charAt(right);
+
+            // Check if the current character is already in the substring
+            while (substring[currentChar] > 0) {
+                // Shrink the window from the left side
+                substring[s.charAt(left)]--;
+                left++;
             }
 
-            ans = Math.max(ans , right - left + 1);
-            map.put(s.charAt(right) , right + 1);
+            // Increment the count of the current character in the substring
+            substring[currentChar]++;
+
+            // Update the maximum length
+            max = Math.max(max, right - left + 1);
         }
 
-        return ans;
-
+        return max;
     }
 }
