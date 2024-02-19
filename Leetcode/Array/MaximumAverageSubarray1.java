@@ -2,38 +2,20 @@ package Leetcode.Array;
 
 public class MaximumAverageSubarray1 {
     public double findMaxAverage(int[] nums, int k) {
-        double sum = 0;
-
-        // Calculate the initial sum for the first k elements
-        int left = 0;
-        int right = k;
+        double sum = 0, max;
         for (int i = 0; i < k; i++) {
             sum += nums[i];
         }
+        //Update max to first k elements
+        max = sum;
 
-        double max = sum;
-        // Use a while loop to slide the window
-        /*
-        Initial Window: [ 1, 12, -5, -6 ] (sum is calculated for this window)
-                          |
-                        left
-        sum - nums[left] meaning remove 1
-
-        After sliding the window to the right:
-                    [ 12, -5, -6, 50 ] (update sum by subtracting 1 and adding 50)
-                      |            |
-                    left++        right
-
-        */
-        while (right < nums.length) {
-            sum = sum - nums[left] + nums[right];
-            max = Math.max(sum, max);
-
-            left++;
-            right++;
+        //We are sliding the window
+        //By adding index and substring index left - k at the same time
+        //For example : left = 4 , left - k = 0 , we are removing index 0 and add index 4 at the same time
+        for (int left = k; left < nums.length; left++) {
+            sum += nums[left] - nums[left - k];
+            max = Math.max(max, sum);
         }
-
-        // Return the maximum average
         return max / k;
     }
 }
