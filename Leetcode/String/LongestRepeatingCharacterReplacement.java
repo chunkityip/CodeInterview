@@ -25,7 +25,7 @@ public class LongestRepeatingCharacterReplacement {
             map.put(s.charAt(right) , map.getOrDefault(s.charAt(right) , 0) + 1);
 
             //max is to count the max repeating character
-            max = Math.max(max , map.get(r));
+            max = Math.max(max , map.get(right));
 
             //If the length of sliding window substring max repeating character ,
             //then the left over will be the one we like to use k to replace the character
