@@ -15,28 +15,24 @@ public class LongestSubstringWithAtMostTwoDistinctCharacters {
 
         */
     public int lengthOfLongestSubstringTwoDistinct(String s) {
-        //Using HashMap to store key and value
-        Map<Character, Integer> map = new HashMap<>();
-        //left pointer and the ans later to compare the max of length
-        int left = 0, ans = 0;
+        int left = 0 , max = 0;
+        Map<Character , Integer> map = new HashMap<>();
 
-        //looping thu the length of s and set right pointer
-            for (int right = 0; right < s.length(); right++) {
-            map.put(s.charAt(right) , map.getOrDefault(s.charAt(right) , 0) + 1);
+        for (int right = 0; right < s.length(); right++) {
+            char r = s.charAt(right);
+            map.put(r , map.getOrDefault(r , 0) + 1);
 
-            //Checking is the size of HashMap bigger than 2
-            if (map.size() > 2) {
-                //remove the value of left by 1
-                map.put(s.charAt(left) , map.get(s.charAt(left)) - 1);
-                //remove index left of char in map if the value is 0. Meaning there is no such char in the map , remove it.
-                if (map.get(s.charAt(left)) == 0) {
-                    map.remove(s.charAt(left));
+            while(map.size() > 2) {
+                char l = s.charAt(left);
+                if (map.containsKey(l)) {
+                    map.put(l , map.get(l) - 1);
                 }
+                if (map.get(l) == 0) map.remove(l);
                 left++;
             }
-            //Comparing the length , we need to add 1 since the index start from 0
-            ans = Math.max(ans , right - left + 1);
+
+            max = Math.max(max , right - left + 1);
         }
-            return ans;
+        return max;
     }
 }
