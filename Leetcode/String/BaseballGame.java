@@ -8,16 +8,16 @@ public class BaseballGame {
         int sum = 0;
 
         for (int i = 0; i < operations.length; i++) {
-            if (!operations[i].equals("C") && !operations[i].equals("D") && !operations[i].equals("+")) {
+            if (!"C".equals(operations[i]) && !"D".equals(operations[i]) && !"+".equals(operations[i])) {
                 int value = Integer.valueOf(operations[i]);
                 stack.push(value);
                 sum += value;
-            } else if (!stack.isEmpty() && operations[i].equals("C")) {
+            } else if (!stack.isEmpty() && "C".equals(operations[i])) {
                 sum -= stack.pop();
-            } else if (!stack.isEmpty() && operations[i].equals("D")) {
+            } else if (!stack.isEmpty() && "D".equals(operations[i])) {
                 stack.push(stack.peek() * 2);
                 sum += stack.peek();
-            } else if (!stack.isEmpty() && operations[i].equals("+")) {
+            } else if (!stack.isEmpty() && "+".equals(operations[i])) {
                 //Second biggest : For example : 5 ,10. top will be 10
                 int top = stack.pop();
                 //Thired biggest which it sum it : For example : top is 10 and stack.peek is 5. 5 + 10 = 15
