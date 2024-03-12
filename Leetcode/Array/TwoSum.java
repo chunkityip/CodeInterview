@@ -23,4 +23,21 @@ public class TwoSum {
         // In case there is no solution, we'll just return null
         return null;
     }
+
+    //JS version
+    var twoSum = function(nums, target) {
+        let map = new Map();
+
+        for (let i = 0; i < nums.length; i++) {
+            let compare = target - nums[i];
+
+            if (map.has(compare)) {
+                return [map.get(compare) , i];
+            }
+
+            map.set(nums[i] , i);
+        }
+
+        return [-1 , -1];
+    };
 }
