@@ -2,16 +2,17 @@ package Leetcode.Array;
 
 public class MoveZeroes {
 
-    public static void moveZeroes(int[] nums) {
+    public void moveZeroes(int[] nums) {
+        int left = 0;
 
-        int i = 0;
-        for (int j = 0; j < nums.length; j++) {
-            if (nums[j] != 0) {
-                int temp = nums[i];
-                nums[i] = nums[j];
-                nums[j] = temp;
-                i++;
+        for (int i = 0; i < nums.length; i++) {
+            if (nums[i] != 0) {
+                nums[left++] = nums[i];
             }
+        }
+
+        for (int i = left; i < nums.length; i++) {
+            nums[i] = 0;
         }
     }
 }
