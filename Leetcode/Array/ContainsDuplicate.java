@@ -1,15 +1,27 @@
 package Leetcode.Array;
 
+import java.util.Arrays;
 import java.util.HashSet;
 
 public class ContainsDuplicate {
 
-    public static void main (String[] args) {
-        int[] num = { 1 , 2 , 3 ,4};
-        System.out.println(containsDuplicate(num)); // True
-    }
+    public static boolean containsDuplicateBySorting(int[] nums) {
+        /*
+        By sorting the array , comparing the prev integer and +1 index integer,
+        if they are same , return true , else , return false.
+         */
+            Arrays.sort(nums);
 
-    public static boolean containsDuplicate(int[] nums) {
+            for (int i = 0; i < nums.length - 1; i++) {
+                if (nums[i] == nums[i + 1]) return true;
+            }
+
+            return false;
+        }
+
+
+
+    public static boolean containsDuplicateByHashSet(int[] nums) {
         /*
           Create HashSet call set
           Iterate each index , add it into set
