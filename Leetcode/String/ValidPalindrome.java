@@ -45,14 +45,18 @@ public class ValidPalindrome {
 
     //Solution 3 : Two Pointer
     public static boolean isPalindrome(String s) {
+        int first = 0;
+        int last = s.length() - 1;
 
-        for (int i = 0 , j = s.length() - 1; i < j; i++ , j--) {
-            while (i < j && !Character.isLetterOrDigit(s.charAt(i))) i++;
-            while (i < j && !Character.isLetterOrDigit(s.charAt(j))) j--;
+        while (first < last) {
+            while (first < last && !Character.isLetterOrDigit(s.charAt(first))) first++;
+            while (first < last && !Character.isLetterOrDigit(s.charAt(last))) last--;
 
-            if (Character.toLowerCase(s.charAt(i)) != Character.toLowerCase(s.charAt(j))) return false;
+            if (Character.toLowerCase(s.charAt(first)) != Character.toLowerCase(s.charAt(last))) return false;
+
+            first++;
+            last--;
         }
-
         return true;
     }
 }
