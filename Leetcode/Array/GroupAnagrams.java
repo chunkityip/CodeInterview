@@ -1,9 +1,6 @@
 package Leetcode.Array;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class GroupAnagrams {
 
@@ -33,31 +30,15 @@ public class GroupAnagrams {
     public List<List<String>> groupAnagramsTwo(String[] strs) {
         //Using ASCII code to count is same number or not
 
-        if (strs.length == 0) return new ArrayList<>();
-        HashMap<String , List<String>> map = new HashMap<>();
-
+        if (strs == null || strs.length == 0) return new ArrayList<>();
+        Map<String, List<String>> map = new HashMap<>();
         for (String s : strs) {
-            int[] count = new int[26];
-            for (char c : s.toCharArray()) {
-                count[c - 'a']++;
-            }
-
-            StringBuilder sb = new StringBuilder();
-            for (int i = 0; i < 26; i++) {
-                //sb.append('#'); is used to separate the counts of different characters.
-                //This is done to ensure that different anagram groups have distinct keys
-                sb.append(count[i]);
-                sb.append('#');
-            }
-
-            String key = sb.toString();
-
-            //if (!map.containsKey(key)) map.put(key , new ArrayList());
-            map.putIfAbsent(key , new ArrayList<>());
-
+            char[] ca = new char[26];
+            for (char c : s.toCharArray()) ca[c - 'a']++;
+            String key = String.valueOf(ca);
+            if (!map.containsKey(key)) map.put(key, new ArrayList<>());
             map.get(key).add(s);
         }
         return new ArrayList<>(map.values());
     }
-
 }
