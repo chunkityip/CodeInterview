@@ -7,7 +7,7 @@ public class GuessNumberHigherOrLower {
         while (left <= n) {
             int mid = left + (n - left) / 2;
             //gues is pre-defined API int guess(int num), which returns three possible results
-            int compare = guess(mid);
+            int compare = guessNumber(mid);
             if (compare == 0) {
                 return mid;
             } else if (compare == -1) {
@@ -19,7 +19,7 @@ public class GuessNumberHigherOrLower {
         return -1;
     }
 
-    //JS version
+    /*JS version
     var guessNumber = function(n) {
         let left = 0;
         while (left <= n) {
@@ -36,4 +36,5 @@ public class GuessNumberHigherOrLower {
         }
         return -1;
     };
+     */
 }
