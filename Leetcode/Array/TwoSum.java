@@ -24,7 +24,7 @@ public class TwoSum {
         return null;
     }
 
-    //JS version
+    /*JS version
     var twoSum = function(nums, target) {
         let map = new Map();
 
@@ -40,4 +40,6 @@ public class TwoSum {
 
         return [-1 , -1];
     };
+
+     */
 }

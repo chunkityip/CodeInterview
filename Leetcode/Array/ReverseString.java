@@ -14,7 +14,7 @@ public class ReverseString {
         }
     }
 
-    //JS version
+    /*JS version
     var reverseString = function(s) {
         let left = 0 , right = s.length - 1;
         while (left <= right) {
@@ -23,4 +23,5 @@ public class ReverseString {
             right--;
         }
     };
+     */
 }
