@@ -32,6 +32,7 @@ public class UniqueEmailAddresses {
             for (int i = e.length() - 1; i >= 0; i--) {
                 char c = e.charAt(i);
                 domain.append(c);
+                //Since we don't want prev index to add after @ , so we add the @ first and then break
                 if (c == '@') break;
             }
 
@@ -58,6 +59,7 @@ public class UniqueEmailAddresses {
         Set<String> set = new HashSet<>();
         for (String e : emails) {
             String[] cleanEmail = e.split("@");
+            //whatever character has a special meaning , we need to add \\
             String[] local = cleanEmail[0].split("\\+");
 
             set.add(local[0].replace(".", "") + "@" + cleanEmail[1]);
