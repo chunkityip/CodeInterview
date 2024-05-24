@@ -49,21 +49,26 @@ public class LongestRepeatingCharacterReplacement {
 // Since the English letter have 26 character , we can actually use [[Frequencies array]] to store it
 
     public int characterReplacement2(String s, int k) {
-        int left = 0 , max = 0 , ans = 0;
-        int[] arr = new int[26];
+        int left = 0, right = 0;
+        int maxLength = 0;
+        int maxCount = 0;
 
-        for (int right = 0; right < s.length(); right++) {
-            char r = s.charAt(right);
-            arr[r - 'A']++;
-            max = Math.max(max , arr[r - 'A']);
+        int[] count = new int[26];
 
-            if (right - left + 1 - max > k) {
-                char l = s.charAt(left);
-                arr[l - 'A']--;
+        while (right < s.length()) {
+            count[s.charAt(right) - 'A']++;
+
+            maxCount = Math.max(maxCount , count[s.charAt(right) - 'A']);
+
+            //K Out of bound , sliding window
+            if (right - left + 1 - maxCount > k) {
+                count[s.charAt(left) - 'A']--;
                 left++;
             }
-            ans = Math.max(ans , right - left + 1);
+
+            maxLength = Math.max(maxLength , right - left + 1);
+            right++;
         }
-        return ans;
+        return maxLength;
     }
 }
