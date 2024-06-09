@@ -2,24 +2,23 @@ package Leetcode.Array;
 
 public class BinarySearch {
     public int search(int[] nums, int target) {
-        int left = 0;
-        int right = nums.length - 1;
+        int low = 0 , high = nums.length - 1;
 
-        while (left < right) {
-            int mid = left + (right - left) / 2;
-
-            if (nums[mid] == target) return mid;
-
-            if (nums[mid] < target) {
-                left = mid + 1;
+        while (low < high) {
+            int mid = low + (high - low) / 2;
+            int num = nums[mid];
+            if (num == target) {
+                return mid;
+            } else if (num < target) {
+                low = mid + 1;
             } else {
-                right = mid - 1;
+                high = mid - 1;
             }
         }
 
-        //Situation for only having one element in nums and that element is target
-        if (left < nums.length && nums[left] == target) {
-            return left;
+        //A situation if the beginning index already is target
+        if (low < nums.length && nums[low] == target) {
+            return low;
         } else {
             return -1;
         }
