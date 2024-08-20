@@ -3,17 +3,15 @@ package Leetcode_Java.Array;
 public class ReplacElementsWithGreatestElementOnRightSide {
 
     public int[] replaceElements(int[] arr) {
-        //We are backtracking from the last inde . Keep storeing the last greatest element and replace it
-
-        //We start at -1 since the question say replace the last element with -1.
         int rightMax = -1;
-
         for (int i = arr.length - 1; i >= 0; i--) {
+            //Looking at the largest one
             int nextMax = Math.max(arr[i] , rightMax);
+            //Since the position of arr[i] is last element so replace to -1
             arr[i] = rightMax;
+            //put it as largest one
             rightMax = nextMax;
         }
-
         return arr;
     }
 }
