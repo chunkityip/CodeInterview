@@ -3,9 +3,10 @@ def replaceElements(self, arr):
     :type arr: List[int]
     :rtype: List[int]
     """
-    right_max = -1
-    for i in range(len(arr) - 1, -1, -1):
-        next_max = max(arr[i], right_max)
-        arr[i] = right_max
-        right_max = next_max
+    rightMax = -1
+    for i in range(len(arr) - 1, - 1, - 1):
+        nextMax = max(arr[i], rightMax)
+        arr[i] = rightMax
+        rightMax = nextMax
+
     return arr
