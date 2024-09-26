@@ -4,9 +4,33 @@ import java.util.*;
 
 public class GroupAnagrams {
 
+    public List<List<String>> groupAnagramsOne(String[] strs) {
+        Map<String , List<String>> map = new HashMap<>();
+
+        /**
+         1. Cut it as single string
+         2. Cut the single string to char
+         3. sort the char
+         4. put the char back to string
+         */
+        for (String s : strs) {
+            char[] c = s.toCharArray();
+            Arrays.sort(c);
+            String sortedStr = new String(c);
+
+            if (!map.containsKey(sortedStr)) {
+                map.put(sortedStr , new ArrayList<>());
+            }
+
+            map.get(sortedStr).add(s);
+        }
+
+        return new ArrayList<>(map.values());
+    }
+
 
     //Using sort() method
-    public List<List<String>> groupAnagrams(String[] strs) {
+    public List<List<String>> groupAnagramsSecondVersion(String[] strs) {
         //Sort the array and put it into HashMap
         //String as key and the list as value
         //"aer" : ["are" , "ear" , "era"]
