@@ -1,6 +1,7 @@
 package Leetcode_Java.String;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class IsomorphicStrings {
 
@@ -24,25 +25,32 @@ public class IsomorphicStrings {
         //map1.get(s.charAt(0)) is 'a' and t.charAt(0) is 'a' , so match
         //map2.get(t.charAt(0)) is 'e' and s.charAt(0) is 'e' , so match
 
-        HashMap<Character , Character> map1 = new HashMap<>();
-        HashMap<Character , Character> map2 = new HashMap<>();
+        Map<Character , Character> map = new HashMap<>();
 
         for (int i = 0; i < s.length(); i++) {
+            char charS = s.charAt(i);
+            char charT = t.charAt(i);
 
-            //We are checking is map1.value match to t.charAt(i)
-            if (map1.containsKey(s.charAt(i))) {
-                if (map1.get(s.charAt(i)) != t.charAt(i)) return false;
+            if (map.containsKey(charS)) {
+                if (map.get(charS) != charT) return false;
+            } else {
+                // This insure the value of charT can't be show it again
+                // egg and add.
+                // e match to a. If there have another a , that isn't isomorphic
+                // g match to d. If there have another d , that isn't isomorphic
+
+                // For example
+                // foo and bar
+                // f match to b
+                // o match to a
+                // map already contains o as key , but the next match point to o to r but pervious match show o match to a
+                // if (map.get(charS) != charT) return false;
+
+
+                if (map.containsValue(charT)) return false;
+                map.put(charS , charT);
             }
-
-            //We are checking is map1.value match to t.charAt(i)
-            if (map2.containsKey(t.charAt(i))) {
-                if (map2.get(t.charAt(i)) != s.charAt(i)) return false;
-            }
-
-            map1.put(s.charAt(i) , t.charAt(i));
-            map2.put(t.charAt(i) , s.charAt(i));
         }
-
         return true;
     }
 }
