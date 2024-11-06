@@ -7,17 +7,14 @@ public class RemoveElement {
         System.out.println(removeElement(nums, val)); //Output : 2
     }
 
-    public static int removeElement(int[] nums, int val) {
-        //Base case
-        if (nums.length == 0) return 0;
-
-        int k = 0;
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != val) {
-                nums[k] = nums[i];
-                k++;
+    public int removeElement(int[] nums, int val) {
+        int i = 0;
+        for (int n : nums) {
+            if (n != val) {
+                nums[i] = n;
+                i++;
             }
         }
-        return k;
+        return i;
     }
 }

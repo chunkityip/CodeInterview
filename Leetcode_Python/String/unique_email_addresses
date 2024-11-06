@@ -1,0 +1,11 @@
+def numUniqueEmails(self, emails: List[str]) -> int:
+        unqiue_email = set()
+
+        for email in emails:
+            local , domain = email.split('@')
+
+            local = local.split('+')[0].replace('.', '')
+
+            unqiue_email.add(local + '@' + domain)
+
+        return len(unqiue_email)
