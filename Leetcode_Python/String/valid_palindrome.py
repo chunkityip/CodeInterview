@@ -1,19 +1,8 @@
-def isPalindrome(self, s):
-    """
-    :type s: str
-    :rtype: bool
-    """
-    left, right = 0, len(s) - 1
-    while (left < right):
-        while left < right and not s[left].isalnum():
-            left += 1
-        while left < right and not s[right].isalnum():
-            right -= 1
+def isPalindrome(self, s, t):
+        if len(s) != len(t): return False
 
-        if s[left].lower() != s[right].lower():
-            return False
-
-        left += 1
-        right -= 1
-
-    return True
+        sMap , tMap = {} , {}
+        for i in range(len(s)):
+            sMap[s[i]] = 1 + sMap.get(s[i] , 0)
+            tMap[t[i]] = 1 + tMap.get(t[i] , 0)
+        return sMap == tMap
