@@ -1,4 +1,4 @@
-package Leetcode_Java.stack;
+package Leetcode_Java.Stack;
 
 public class BaseballGame {
     class Solution {
